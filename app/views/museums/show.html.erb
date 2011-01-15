@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @museum.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @museum.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @museum.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @museum.state %>
+</p>
+
+<p>
+  <b>Zip code:</b>
+  <%= @museum.zip_code %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @museum.website %>
+</p>
+
+<p>
+  <b>Free days:</b>
+  <%= @museum.free_days %>
+</p>
+
+
+<%= link_to 'Edit', edit_museum_path(@museum) %> |
+<%= link_to 'Back', museums_path %>

@@ -1,0 +1,43 @@
+<h1>Free Museums Today, <%= Time.now.strftime("%A, %B %d, %Y") %></h1>
+Today is: <%= @today = Time.now.strftime("%m/%d/%Y") %>   <br /> <br /> 
+<% @free_museums = [] %> 
+
+<% @museums.each do |museum| %> 
+  <% @free_days = [] %>
+  <% @free_days = museum[:free_days].split(' ') %>
+  <% @free_days.each do |free_days| %>
+    <% if @today == free_days %>
+      <%= "Today is #{@today} and #{museum.name} has a free day on #{free_days}, therefore #{museum.name} is free today." %><br /><br />
+      <% @free_museums << museum.id.to_s %>
+    <% else %>
+    <% end %>
+  <% end %>
+<% end %>
+<%= @free_museums %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip code</th>
+    <th>Website</th>
+  </tr>
+
+<% @museums.each do |museum| %>
+  <% @free_museums.each do |free_museum| %>
+    <% if museum.id.to_s == free_museum %>
+    <tr>
+      <td><%= museum.name %></td>
+      <td><%= museum.address %></td>
+      <td><%= museum.city %></td>
+      <td><%= museum.state %></td>
+      <td><%= museum.zip_code %></td>
+      <td><%= museum.website %></td>
+    </tr>
+    <% else %>
+    <% end %>
+  <% end %>
+<% end %>
+</table>  
