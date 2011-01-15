@@ -1,4 +1,5 @@
 <h1>Free Museums Today, <%= Time.now.strftime("%A, %B %d, %Y") %></h1>
+<%= link_to "Add Museums", museums_path %><br /><br />
 Today is: <%= @today = Time.now.strftime("%m/%d/%Y") %>   <br /> <br /> 
 <% @free_museums = [] %> 
 
