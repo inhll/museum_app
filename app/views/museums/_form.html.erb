@@ -1,3 +1,4 @@
+<% @today = Time.now.strftime("%m/%d/%Y") %>
 <%= form_for(@museum) do |f| %>
   <% if @museum.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +11,6 @@
       </ul>
     </div>
   <% end %>
-  <p>Add Free days as <%= Time.now.strftime("%m/%d/%Y") %> and separated by spaces.</p>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -38,7 +38,8 @@
   </div>
   <div class="field">
     <%= f.label :free_days %><br />
-    <%= f.text_field :free_days %>
+    <%= f.label "Format Free days as MM/DD/YYYY (#{@today}) and separate dates with spaces." %><br />
+    <%= f.text_area :free_days %>
   </div>
   <div class="actions">
     <%= f.submit %>
