@@ -1,0 +1,13 @@
+<% @today = Time.now.strftime("%m/%d/%Y") %>
+<% @free_museums = [] %> 
+
+<% @museums.each do |museum| %> 
+  <% @free_days = [] %>
+  <% @free_days = museum[:free_days].split(' ') %>
+  <% @free_days.each do |free_days| %>
+    <% if @today == free_days %>
+      <% @free_museums << museum.id.to_s %>
+    <% else %>
+    <% end %>
+  <% end %>
+<% end %>
