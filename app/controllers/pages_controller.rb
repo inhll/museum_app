@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   # GET /museums
   # GET /museums.xml
+
+  @today_pretty = Time.now.strftime("%A, %B %d, %Y") 
+  @today_useful = Time.now.strftime("%m/%d/%Y")
+
   def index
     @museums = Museum.all
 
@@ -8,13 +12,8 @@ class PagesController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @museums }
     end
-Time.now.strftime("%A, %B %d, %Y") 
-Time.now.strftime("%m/%d/%Y")
-@museums.each do |museum|
-free_days = museum.free_days
- end
   end
- 
+
   def contact
   end
 

@@ -1,5 +1,4 @@
 <h1>Listing museums</h1>
-<%= link_to "Main Page", root_path %><br /><br />
 
 <table>
   <tr>
@@ -24,9 +23,9 @@
     <td><%= museum.zip_code %></td>
     <td><%= museum.website %></td>
     <td><%= museum.free_days %></td>
-    <td><%= link_to 'Show', museum %></td>
-    <td><%= link_to 'Edit', edit_museum_path(museum) %></td>
-    <td><%= link_to 'Destroy', museum, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("table_go.png"), museum %></td>
+    <td><%= link_to image_tag("table_edit.png"), edit_museum_path(museum) %></td>
+    <td><%= link_to image_tag("table_delete.png"), museum, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
