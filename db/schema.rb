@@ -13,15 +13,15 @@
 ActiveRecord::Schema.define(:version => 20110115141810) do
 
   create_table "museums", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip_code"
-    t.string   "website"
-    t.string   "free_days"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "address"
+    t.string    "city"
+    t.string    "state"
+    t.integer   "zip_code"
+    t.string    "website"
+    t.string    "free_days"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end
