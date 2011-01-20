@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   @today_useful = Time.now.strftime("%m/%d/%Y")
 
   def index
+    @title = "Home"
     @museums = Museum.all
 
     respond_to do |format|
@@ -15,6 +16,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @title = "Contact"
   end
 
 end

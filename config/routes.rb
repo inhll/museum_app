@@ -6,6 +6,8 @@ Smuseumapp::Application.routes.draw do
   get "pages/index"
 
   get "pages/contact"
+  
+  match "/contact", :to => "pages#contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

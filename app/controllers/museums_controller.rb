@@ -3,6 +3,7 @@ class MuseumsController < ApplicationController
   # GET /museums.xml
   def index
     @museums = Museum.all
+    @title = "Listing All Museums"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class MuseumsController < ApplicationController
   # GET /museums/1.xml
   def show
     @museum = Museum.find(params[:id])
+    @title = "#{@museum.name} Information"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class MuseumsController < ApplicationController
   # GET /museums/new.xml
   def new
     @museum = Museum.new
+    @title = "New Museum"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +38,14 @@ class MuseumsController < ApplicationController
   # GET /museums/1/edit
   def edit
     @museum = Museum.find(params[:id])
+    @title = "Editing #{@museum.name} Information"
   end
 
   # POST /museums
   # POST /museums.xml
   def create
     @museum = Museum.new(params[:museum])
+    @title = "#{@museum.name} Created"
 
     respond_to do |format|
       if @museum.save
@@ -73,6 +78,7 @@ class MuseumsController < ApplicationController
   # DELETE /museums/1.xml
   def destroy
     @museum = Museum.find(params[:id])
+    @title = "#{@museum.name} Destroyed"
     @museum.destroy
 
     respond_to do |format|

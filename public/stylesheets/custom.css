@@ -1,6 +1,5 @@
 /* Container CSS */
 .container {
-  width: 710px;
 }
 
 body {
@@ -24,7 +23,7 @@ section {
 }
 
 section h1 {
-  font-size: 200%;
+  font-size: 900%;
 }
 
 /* Links */
@@ -87,12 +86,26 @@ nav ul li a:hover {
 footer {
   text-align: center;
   margin-top: 10px;
-  width: 710px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
 }
 
 footer nav {
   float: none;
+}
+
+
+/* Add museum button */
+
+a.add_museum_button {
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #006400;
+  font-size: 110%;
+  font-weight: bold;
+  padding: 10px;
 }
 
