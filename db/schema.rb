@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110120183158) do
     t.string    "state"
     t.integer   "zip_code"
     t.string    "website"
-    t.string    "free_days"
+    t.text      "free_days"
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
