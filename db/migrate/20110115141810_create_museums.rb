@@ -7,7 +7,7 @@ class CreateMuseums < ActiveRecord::Migration
       t.string :state
       t.integer :zip_code
       t.string :website
-      t.string :free_days
+      t.text :free_days
 
       t.timestamps
     end
