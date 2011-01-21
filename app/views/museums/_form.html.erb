@@ -1,4 +1,9 @@
-<% @today = Time.now.strftime("%m/%d/%Y") %>
+<% @time = Time.now %>
+<% @today = @time.strftime("%m/%d/%Y") %>
+<% @tomorrow = @time + 1.days %>
+<% @tomorrow = @tomorrow.strftime("%m/%d/%Y") %>
+<% @yesterday = @time - 1.days %>
+<% @yesterday = @yesterday.strftime("%m/%d/%Y") %>
 <%= form_for(@museum) do |f| %>
   <% if @museum.errors.any? %>
     <div id="error_explanation">
@@ -13,34 +18,42 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <div class="span-4"><%= f.label :name %></div>
+    <div class="span-13 last"><%= f.text_field :name %></div>
   </div>
+  <hr class="space" />
   <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <div class="span-4"><%= f.label :address %></div>
+    <div class="span-13 last"><%= f.text_field :address %></div>
   </div>
+  <hr class="space" />
   <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+    <div class="span-4"><%= f.label :city %></div>
+    <div class="span-13 last"><%= f.text_field :city %></div>
   </div>
+  <hr class="space" />
   <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
+    <div class="span-4"><%= f.label :state %></div>
+    <div class="span-13 last"><%= f.text_field :state %></div>
   </div>
+  <hr class="space" />
   <div class="field">
-    <%= f.label :zip_code %><br />
-    <%= f.text_field :zip_code %>
+    <div class="span-4"><%= f.label :zip_code %></div>
+    <div class="span-13 last"><%= f.text_field :zip_code %></div>
   </div>
+  <hr class="space" />
   <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
+    <div class="span-4"><%= f.label :website %></div>
+    <div class="span-13 last"><%= f.text_field :website %></div>
   </div>
+  <hr class="space" />
   <div class="field">
-    <%= f.label :free_days %><br />
-    <%= f.label "Format Free days as MM/DD/YYYY (#{@today}) and separate dates with spaces." %><br />
-    <%= f.text_area :free_days %>
+    <div class="span-4"><%= f.label :free_days %><br />
+      <span class="quiet small"><%= f.label "Please format Free days as MM/DD/YYYY (#{@today}) and separate dates with spaces as follows: #{@yesterday} #{@today} #{@tomorrow}" %>
+    </div></span>
+    <div class="span-13 last"><%= f.text_area :free_days %></div>
   </div>
+  <hr class="space" />
   <div class="actions">
     <%= f.submit %>
   </div>
