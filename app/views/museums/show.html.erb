@@ -1,40 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @museum.name %>
-</p>
+  <div class="museum round span-17 last">
+    <div class="span-11"><strong><%= @museum.name %></strong></div>
+    <div class="span-6 buttons_right last">
+      <%= link_to "View", @museum, :class => "add_museum_button_sm round" %>
+      <%= link_to "Edit", edit_museum_path(@museum), :class => "add_museum_button_sm round" %>                         
+      <%= link_to "Delete", @museum, :class => "add_museum_button_sm round", :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+    <hr class="space" />
+    <div class="span-3"> Website: </div>
+    <div class="span-14 last"> <%= link_to @museum.website, @museum.website %> </div> 
+    <div class="span-3"> Address: </div> 
+    <div class="span-14 last"> <%= @museum.address %> </div>
+    <div class="span-3"> City: </div>
+    <div class="span-14 last"> <%= @museum.city %> </div>
+    <div class="span-3"> State: </div>
+    <div class="span-14 last"> <%= @museum.state %> </div> 
+    <div class="span-3"> Zipcode: </div>
+    <div class="span-14 last"> <%= @museum.zip_code %> </div>
+    <div class="span-3"> Free Days: </div>
+    <div class="span-14 last"> <%= @museum.free_days %> </div>
+  </div> 
 
-<p>
-  <b>Address:</b>
-  <%= @museum.address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @museum.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @museum.state %>
-</p>
-
-<p>
-  <b>Zip code:</b>
-  <%= @museum.zip_code %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @museum.website %>
-</p>
-
-<p>
-  <b>Free days:</b>
-  <%= @museum.free_days %>
-</p>
-
-
-<%= link_to 'Edit', edit_museum_path(@museum) %> |
 <%= link_to 'Back', museums_path %>

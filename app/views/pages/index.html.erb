@@ -1,28 +1,23 @@
-<h2><%= Time.now.strftime("%A, %B %d, %Y") %></h2>
+<h1>Today is <%= Time.now.strftime("%A, %B %d, %Y") %></h1>
 <p>
+The following museums are free today:
 <%= render 'find' %>
 </p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-  </tr>
-
 <% @museums.each do |museum| %>
-  <% @free_museums.each do |free_museum| %>
-    <% if museum.id.to_s == free_museum %>
-    <tr>
-        <td><a href="<%= museum.website %>" alt="<%= museum.name %>"><%= museum.name %></a></td>
-        <td>
-          <address>
-            <%= museum.address %><br />
-            <%= "#{museum.city}, #{museum.state} #{museum.zip_code}" %>
-          </address>
-        </td>
-    </tr>
-    <% else %>
-    <% end %>
-  <% end %>
+  <div class="museum round span-17 last">
+    <div class="span-13"><strong><%= link_to museum.name, museum.website %></strong></div>
+    <div class="span-4 buttons_right last">
+      <%= link_to "View Record", museum, :class => "add_museum_button_sm round" %>
+    </div>
+    <hr class="space" />
+    <div class="span-17 last">
+      <address>
+        <%= museum.address %>
+        <%= museum.city %>, <%= museum.state %> <%= museum.zip_code %>
+      </address>
+    </div>
+  </div>
 <% end %>
-</table>  
+
+<hr class="space" />   

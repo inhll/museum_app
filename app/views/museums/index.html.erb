@@ -1,42 +1,33 @@
-<h1>Listing museums</h1>
-
-<br />
-<br />
-
-<%= link_to 'New Museum', new_museum_path, :class => "add_museum_button round" %>
-
-<br />
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip code</th>
-    <th>Website</th>
-    <th>Free days</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p>
+  <%= link_to 'New Museum', new_museum_path, :class => "add_museum_button round" %>
+</p>
 
 <% @museums.each do |museum| %>
-  <tr>
-    <td><%= museum.name %></td>
-    <td><%= museum.address %></td>
-    <td><%= museum.city %></td>
-    <td><%= museum.state %></td>
-    <td><%= museum.zip_code %></td>
-    <td><%= museum.website %></td>
-    <td><%= museum.free_days %></td>
-    <td><%= link_to image_tag("table_go.png"), museum %></td>
-    <td><%= link_to image_tag("table_edit.png"), edit_museum_path(museum) %></td>
-    <td><%= link_to image_tag("table_delete.png"), museum, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div class="museum round span-17 last">
+    <div class="span-11"><strong><%= museum.name %></strong></div>
+    <div class="span-6 buttons_right last">
+      <%= link_to "View", museum, :class => "add_museum_button_sm round" %>
+      <%= link_to "Edit", edit_museum_path(museum), :class => "add_museum_button_sm round" %>                         
+      <%= link_to "Delete", museum, :class => "add_museum_button_sm round", :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+    <hr class="space" />
+    <div class="span-3"> Website: </div>
+    <div class="span-14 last"> <%= link_to museum.website, museum.website %> </div> 
+    <div class="span-3"> Address: </div> 
+    <div class="span-14 last"> <%= museum.address %> </div>
+    <div class="span-3"> City: </div>
+    <div class="span-14 last"> <%= museum.city %> </div>
+    <div class="span-3"> State: </div>
+    <div class="span-14 last"> <%= museum.state %> </div> 
+    <div class="span-3"> Zipcode: </div>
+    <div class="span-14 last"> <%= museum.zip_code %> </div>
+    <div class="span-3"> Free Days: </div>
+    <div class="span-14 last"> <%= museum.free_days %> </div>
+  </div>
 <% end %>
-</table>
 
-<br />
+<hr class="space" />
 
-<%= link_to 'New Museum', new_museum_path, :class => "add_museum_button round" %>
+<p>
+  <%= link_to 'New Museum', new_museum_path, :class => "add_museum_button round" %>
+</p>
