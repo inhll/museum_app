@@ -126,8 +126,24 @@ a.add_museum_button_sm {
   font-weight: bold;
   padding: 5px 15px;
   margin: 0px 3px;
+}     
+
+.get_directions {
+  text-align: center;
+  color: #fff;
+  border: 0px;
+  background: #ADAFB1;
+  font-size: 90%;
+  font-weight: bold;
+  padding: 2px 10px;
+  margin: 0px 3px;
+  cursor: pointer;
 }  
 
 .buttons_right {
   text-align: right;
+}
+
+.bold {
+  font-weight: bold;
 }
