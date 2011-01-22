@@ -128,7 +128,7 @@ a.add_museum_button_sm {
   margin: 0px 3px;
 }     
 
-.get_directions {
+.get_directions_button {
   text-align: center;
   color: #fff;
   border: 0px;
@@ -139,6 +139,10 @@ a.add_museum_button_sm {
   margin: 0px 3px;
   cursor: pointer;
 }  
+
+.get_directions_field {
+  width: 250px;
+}
 
 .buttons_right {
   text-align: right;
