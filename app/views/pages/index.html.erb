@@ -1,15 +1,21 @@
 <h1>Today is <%= Time.now.strftime("%A, %B %d, %Y") %></h1>
-<p>
-  The following museums are free today:
-  <% render 'find' %>
-</p>
+<% @today = Time.now.strftime("%m/%d/%Y") %>
+<% @free_museums = [] %> 
 <% @not_free = [] %>
 
 <% @museums.each do |museum| %>
-  <% @free_museums.each do |free_museum| %>
-    <% if museum.id.to_s == free_museum %>
+  <% @free_days = [] %>
+  <% @free_days = museum[:free_days].split(' ') %>
+  <% @free_days.each do |free_days| %>
+    <% if @today == free_days %>
+      <% @free_museums << museum.id.to_s %>
+    <% else %>
+    <% end %>
+  <% end %>   
+  <% @free_museums.each do |fm| %>
+    <% if museum.id.to_s != fm.to_s %>
       <div class="museum round span-17 last">
-        <div class="span-13"><h3><%= link_to museum.name, museum.website %></h3></div>
+        <div class="span-13"><h3><%= link_to museum.name, museum.website %> is free today.</h3></div>
         <div class="span-4 buttons_right last">
           <%= link_to "View Record", museum, :class => "add_museum_button_sm round" %>
         </div>
