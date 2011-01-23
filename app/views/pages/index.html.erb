@@ -13,7 +13,7 @@
     <% end %>
   <% end %>   
   <% @free_museums.each do |fm| %>
-    <% if museum.id.to_s != fm.to_s %>
+    <% if museum.id.to_s == fm.to_s %>
       <div class="museum round span-17 last">
         <div class="span-13"><h3><%= link_to museum.name, museum.website %> is free today.</h3></div>
         <div class="span-4 buttons_right last">
