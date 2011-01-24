@@ -1,67 +1,62 @@
 <h1>Today is <%= Time.now.strftime("%A, %B %d, %Y") %></h1>
-<% @today = Time.now.strftime("%m/%d/%Y") %>
-<% @free_museums = [] %> 
-<% @not_free = [] %>
+<% @today = Time.now.strftime("%m/%d/%Y")
+  @free_museums = [] 
+  @is_free = [] 
+  @not_free = [] %>
 
-<% @museums.each do |museum| %>
-  <% @free_days = [] %>
-  <% @free_days = museum[:free_days].split(' ') %>
-  <% @free_days.each do |free_days| %>
-    <% if @today == free_days %>
-      <% @free_museums << museum.id.to_s %>
-    <% else %>
-    <% end %>
-  <% end %>   
-  <% @free_museums.each do |fm| %>
-    <% if museum.id.to_s == fm.to_s %>
-      <div class="museum round span-17 last">
-        <div class="span-13"><h3><%= link_to museum.name, museum.website %> is free today.</h3></div>
-        <div class="span-4 buttons_right last">
-          <%= link_to "View Record", museum, :class => "add_museum_button_sm round" %>
-        </div>
-        <div class="span-4 bold clear">
-          Address:
-        </div>
-        <div class="span-13 last">
-          <%= museum.address %><br />
-          <%= museum.city + ', ' + museum.state + ' ' + museum.zip_code.to_s %>
-        </div>
-        <div class="span-4 bold">
-          Get Directions:
-        </div>
-        <div class="span-13 last">
-          <form action="http://maps.google.com/maps" method="get" target="_blank">
-            Enter your address: 
-            <input type="text" name="saddr" class="get_directions_field" />
-            <input type="hidden" name="daddr" value="<%= museum.address + ', ' + museum.city + ', ' + museum.state + ' ' + museum.zip_code.to_s %>" />
-            <input type="submit" value="Get Directions" class="get_directions_button round" />
-          </form>
-        </div>
-        <div class="span-4 bold">
-          Hours:
-        </div>
-        <div class="span-13 last">
-          <% @hours = museum.hours.to_s.split(', ') %> 
-            <% @hours.each do |hour| %>
-              <%= hour %><br />
-            <% end %>      
-          </ul>
-        </div>
+<% @museums.each do |m|
+   @free_days = []
+   @free_days = m[:free_days].split(' ')
+   @free_days.each do |fd|
+     if @today == fd 
+        @free_museums << m.id.to_s 
+     else
+     end
+   end
+end %>
+
+<% @museums.each do |m|
+  if @free_museums.include?(m.id.to_s) 
+     @addr = "#{m.address}, #{m.city}, #{m.state} #{m.zip_code.to_s}" %>
+
+    <div class="museum round span-17 last">
+      <h3><%= link_to m.name, m.website %> is free today.</h3> 
+      <div class="span-4 bold">
+        Address:
       </div>
-    <% else %>
-        <% @not_free << museum.name %>
-    <% end %>
-  <% end %>
-<% end %>
-<div class="museum round span-17 last">
-  <p>
-    The following museums are not free today:
-    <ul>
-      <% @not_free.each do |nf| %>
-        <li><%= nf %></li>
-      <% end %>
-    </ul>
-  </p>
-</div>
+      <div class="span-13 last">
+          <%= m.address %><br /><%= m.city + ', ' + m.state + ' ' + m.zip_code.to_s %>
+      </div>
+      <div class="span-4 bold">
+          Get Directions:
+      </div>
+      <div class="span-13 last">
+        <form action="http://maps.google.com/maps" method="get" target="_blank">
+          Enter your address: 
+          <input type="text" name="saddr" class="get_directions_field" />
+          <input type="hidden" name="daddr" value="<%= @addr %>" />
+          <input type="submit" value="Get Directions" class="get_directions_button round" />
+        </form>                                             
+    </div>     
+    <div class="span-4 bold">
+      Hours:
+    </div>
+    <div class="span-13 last">
+      <% @hours = m.hours.to_s.split(', ') %> 
+        <% @hours.each do |hour| %>
+          <%= hour %><br />
+        <% end %>      
+      </ul>
+    </div>                                   
+  </div>
+
+  <% else %>
+
+    <div class="museum round span-17 last">
+      <%= link_to m.name, m.website %> is not free today.
+    </div>   
+
+<% end
+end %>
 
 <hr class="space" />   
