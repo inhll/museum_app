@@ -5,7 +5,7 @@
   <%= render 'layouts/css' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
 </head>
 <body>
   <div class="container">
@@ -15,8 +15,6 @@
     <nav class="round">
       <ul>
         <li><%= link_to "Main Page", root_path %></li>
-        <li><%= link_to "List All Museums", museums_path %></li>
-        <li><%= link_to "Add Museum", new_museum_path %></li>
         <li><%= link_to "Contact", contact_path %></li>
       </ul>
     </nav>
@@ -25,7 +23,7 @@
     </section>
     <footer>
       <nav class="round">
-        &copy; Zebras
+        &copy; 2011 Ian
       </nav>
     </footer>
   </div>
