@@ -9,14 +9,14 @@
    @free_days = m[:free_days].split(' ')
    @free_days.each do |fd|
      if @today == fd 
-        @free_museums << m.id.to_s 
+       @is_free << m.id.to_s 
      else
      end
    end
 end %>
 
 <% @museums.each do |m|
-  if @free_museums.include?(m.id.to_s) 
+  if @is_free.include?(m.id.to_s) 
      @addr = "#{m.address}, #{m.city}, #{m.state} #{m.zip_code.to_s}" %>
 
     <div class="museum round span-17 last">
@@ -50,13 +50,18 @@ end %>
     </div>                                   
   </div>
 
-  <% else %>
+  <% else
+  @not_free << m.id.to_s
+   end
+end %>
 
+<% @museums.each do |m|
+  if @not_free.include?(m.id.to_s) %>
     <div class="museum round span-17 last">
       <%= link_to m.name, m.website %> is not free today.
-    </div>   
-
-<% end
+    </div>
+<% else
+  end
 end %>
 
 <hr class="space" />   
