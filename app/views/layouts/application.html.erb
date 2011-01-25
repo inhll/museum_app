@@ -18,7 +18,8 @@
     <div class="span-5 last right">
       <nav class="round">
         <ul>
-          <li><%= link_to "Main Page", root_path, :class => "round" %></li>
+          <li><%= link_to "Share on Twitter", "http://twitter.com/home?status=Find free museums in Chicago on http://freemuseumstoday.com!", :title => "Click to share on Twitter", :class => "round", :target => "_blank" %></li>
+          <li><%= link_to "Share on Facebook", "http://www.facebook.com/sharer.php?u=http://freemuseumstoday.com&t=Free Museums Today", :title => "Click to share on Facebook", :class => "round", :target => "_blank" %></li>
           <li><%= link_to "Contact", contact_path, :class => "round" %></li>
         </ul>
       </nav>
