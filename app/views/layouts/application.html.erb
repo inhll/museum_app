@@ -10,16 +10,20 @@
 </head>
 <body>
   <div class="container">
-    <header class="round">
-      <h1>Free Museums Today</h1>
-    </header>
-    <nav class="round">
-      <ul>
-        <li><%= link_to "Main Page", root_path %></li>
-        <li><%= link_to "Contact", contact_path %></li>
-      </ul>
-    </nav>
-    <section class="round">
+    <div class="span-12">
+      <header class="round">
+        <h1>Free Museums Today</h1>
+      </header>
+    </div>
+    <div class="span-5 last right">
+      <nav class="round">
+        <ul>
+          <li><%= link_to "Main Page", root_path, :class => "round" %></li>
+          <li><%= link_to "Contact", contact_path, :class => "round" %></li>
+        </ul>
+      </nav>
+    </div>
+    <section class="clear round">
       <%= yield %>
     </section>
     <footer>

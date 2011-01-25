@@ -1,4 +1,6 @@
+<% @future_date = "" %>
 <h1>Today is <%= Time.now.strftime("%A, %B %d, %Y") %></h1>
+
 <% @today = Time.now.strftime("%m/%d/%Y")
   @free_museums = [] 
   @is_free = [] 
@@ -20,7 +22,7 @@ end %>
      @addr = "#{m.address}, #{m.city}, #{m.state} #{m.zip_code.to_s}" %>
 
     <div class="museum round span-17 last">
-      <h3><%= link_to m.name, m.website %> is free today.</h3> 
+      <h3><%= link_to m.name, m.website, :class => "clearlink" %> is free today.</h3> 
       <div class="span-4 bold">
         Address:
       </div>
@@ -35,7 +37,7 @@ end %>
           Enter your address: 
           <input type="text" name="saddr" class="get_directions_field" />
           <input type="hidden" name="daddr" value="<%= @addr %>" />
-          <input type="submit" value="Get Directions" class="get_directions_button round" />
+          <input type="submit" value="Get Directions" class="button round get_directions" />
         </form>                                             
     </div>     
     <div class="span-4 bold">
@@ -48,6 +50,9 @@ end %>
         <% end %>      
       </ul>
     </div>                                   
+    <div class="span-17 last right">
+      <%= mail_to("ian@freemuseumstoday.com", "Report Error", :subject => "I found a problem with #{m.name}", :class => "button round report_error") %>
+    </div>
   </div>
 
   <% else

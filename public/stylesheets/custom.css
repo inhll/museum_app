@@ -5,6 +5,8 @@
 
 body {
   background: #698DA5;
+  background-image: url(/images/lights.jpg);
+  background-attachment: fixed;
 }
 
 header {
@@ -21,6 +23,7 @@ section {
   font-size: 120%;
   padding: 20px;
   background: #F5F6F5;
+
 }
 
 section h1 {
@@ -34,12 +37,8 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: #069;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
+a:hover,
+a:focus,
 a:visited {
   color: #069;
 }
@@ -47,8 +46,8 @@ a:visited {
 /* Navigation */
 
 nav {
-  background-color: #F5F6F5;
-  padding: 0.5em 0.7em;
+  float: right;
+  padding: 32px 20px 0px 0px;
   white-space: nowrap;
 }
 
@@ -64,24 +63,39 @@ nav ul li {
 }
 
 nav ul li a {
-  padding: 0 5px;
+  padding: 5px 15px;
+  color: #FFF;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
+  -webkit-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  -moz-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  -o-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  -o-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
 }
 
 nav ul li a:visited {
-  color: #09c;
+  color: #FFF;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+nav ul li a:hover,
+nav ul li a:focus {
+  font-weight: bold;
+  color: #FFF;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
 }
 
 /* Round corners */
 
 .round {
-  -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .museum {
@@ -106,46 +120,64 @@ footer nav {
 
 /* Add museum button */
 
-a.add_museum_button {
-  display: block;
+.button {
   text-align: center;
-  width: 190px;
-  color: #fff;
+  color: #FFF;
   background: #ADAFB1;
-  font-size: 110%;
+  font-size: 100%;
   font-weight: bold;
-  padding: 10px;
+  padding: 2px 10px; 
+  cursor: pointer;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease;  
 }
 
-a.add_museum_button_sm {
-  text-align: center;
-  width: 50px;
-  color: #fff;
-  background: #ADAFB1;
-  font-size: 90%;
-  font-weight: bold;
-  padding: 5px 15px;
-  margin: 0px 3px;
-}     
+.button:hover {
+  background: #788D9A;
+  color: #FFF;
+  -webkit-box-shadow: 0 1px 2px #999;
+  -moz-box-shadow: 0 1px 2px #999;
+  -o-box-shadow: 0 1px 2px #999;
+  box-shadow: 0 1px 2px #999;
+}       
 
-.get_directions_button {
-  text-align: center;
-  color: #fff;
-  border: 0px;
-  background: #ADAFB1;
+.button:visited, .button:active {
+  color: #FFF;
+}
+
+a.clearlink {
+  background: transparent;
+}
+
+.get_directions {
   font-size: 90%;
-  font-weight: bold;
-  padding: 2px 10px;
-  margin: 0px 3px;
-  cursor: pointer;
+}
+
+.report_error {
+  font-size: 80%;
+}
+
+.new_museum {
+  font-size: 110%;
+  padding: 10px 20px;
 }  
 
-.get_directions_field {
-  width: 250px;
+.modify_museum {
+  background-color: #ADAFB1;
 }
 
-.buttons_right {
+.get_directions_field {
+  width: 240px;
+}
+
+.right {
   text-align: right;
+}
+
+.left {
+  text-align: left;
 }
 
 .bold {
