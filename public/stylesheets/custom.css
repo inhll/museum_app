@@ -79,6 +79,7 @@ nav ul li a {
 
 nav ul li a:visited {
   color: #FFF;
+  font-weight: bold;
 }
 
 nav ul li a:hover,
