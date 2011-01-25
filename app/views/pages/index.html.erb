@@ -17,8 +17,13 @@
    end
 end %>
 
+<% @city = []
+@museums.each do |m|
+  @city << m.city
+end %>
+
 <% @museums.each do |m|
-  if @is_free.include?(m.id.to_s) 
+  if @is_free.include?(m.id.to_s) && m.city.to_s.include?("Chicago")
      @addr = "#{m.address}, #{m.city}, #{m.state} #{m.zip_code.to_s}" %>
 
     <div class="museum round span-17 last">

@@ -13,6 +13,17 @@ header {
   padding-top: 20px;
 }
 
+header h1 {
+  font-weight: bold;   
+  color: #FFF;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+  -webkit-text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  -moz-text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  -o-text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
 header img {
   padding: 1em;
   background: #F5F6F5;
